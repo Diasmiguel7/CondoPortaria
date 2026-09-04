@@ -1,0 +1,148 @@
+:root {
+    --roxo: #8B3DFF;
+    --roxo-escuro: #5B1FB3;
+    --rosa: #FF5C8D;
+    --azul: #00C4CC;
+    --texto: #2E2A3D;
+    --texto-suave: #7A748C;
+    --borda: #E4E0F0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--roxo) 0%, var(--roxo-escuro) 45%, var(--rosa) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+}
+
+/* manchas decorativas ao fundo, estilo "blob" do Canva */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.35;
+}
+
+body::before {
+    width: 420px;
+    height: 420px;
+    background: var(--azul);
+    top: -140px;
+    left: -120px;
+}
+
+body::after {
+    width: 380px;
+    height: 380px;
+    background: #FFD166;
+    bottom: -140px;
+    right: -110px;
+}
+
+form {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    padding: 40px 36px 32px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px -20px rgba(43, 15, 94, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--texto);
+    text-align: center;
+}
+
+h2::after {
+    content: "Acesse a portaria do seu condomínio";
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--texto-suave);
+    margin-top: 6px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--borda);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    color: var(--texto);
+}
+
+input::placeholder {
+    color: #B7B2C8;
+}
+
+input:focus {
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 4px rgba(139, 61, 255, 0.15);
+}
+
+button {
+    margin-top: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, var(--roxo) 0%, var(--rosa) 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 13px 0;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 10px 20px -8px rgba(139, 61, 255, 0.6);
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px -8px rgba(139, 61, 255, 0.7);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}
